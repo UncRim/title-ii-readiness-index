@@ -240,7 +240,7 @@ Run it only on a machine where Playwright's Chromium is installed. Jobs live in 
 
 ## How to cite
 
-> Dandi, D. *Title II Readiness Index: scanner and data, cycle 1.* [DOI and year to be added when published.]
+> Dandi, D. *Title II Readiness Index: scanner and data, cycle 1.* November 16, 2026.
 
 ## Roadmap
 
