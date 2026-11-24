@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "a11y:check": "node scripts/a11y-check.mjs",
+    "bench:score": "node bench/score.js",
     "test": "esbuild tests/*.test.ts --bundle --platform=node --format=esm --packages=external --alias:@=./src --outdir=.tmp --out-extension:.js=.mjs --log-level=warning && node --test .tmp/*.test.mjs"
   },
   "dependencies": {

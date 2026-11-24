@@ -1,0 +1,6 @@
+Use this exact prompt for every AI tool, in a new conversation each time, with the case file's full HTML pasted after it. Save the tool's reply (HTML only) as bench/outputs/<tool-name>/caseNN.html. Record the tool name, model version and date in bench/outputs/<tool-name>/README.txt.
+
+---
+
+Fix the accessibility problems in this web page so that it conforms to WCAG 2.1 Level AA. Do not change the page's content, meaning or layout beyond what the fixes require. Return only the complete corrected HTML, with no explanation.
+

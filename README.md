@@ -246,10 +246,10 @@ Run it only on a machine where Playwright's Chromium is installed. Jobs live in 
 
 - Repeat the index each cycle, with the same method and seed policy.
 - A "your own site" check: paste a URL and get the same plain-language page for that one site.
-- An AI remediation benchmark: how often AI-suggested fixes resolve automated failures without breaking the page.
+- An AI remediation benchmark: how often AI-suggested fixes resolve automated failures without breaking the page. The harness lives in [`bench/`](./bench/); it has **not been run yet** (no scored tool outputs in this release).
 - A fix-first guide for the most common failures.
 
-These are planned, not part of this release.
+These are planned, not part of this release. The benchmark folder is checked in so others can inspect the method; results will come later.
 
 ## Licence and contact
 
