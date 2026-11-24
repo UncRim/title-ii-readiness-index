@@ -250,7 +250,3 @@ Run it only on a machine where Playwright's Chromium is installed. Jobs live in 
 - A fix-first guide for the most common failures.
 
 These are planned, not part of this release. The benchmark folder is checked in so others can inspect the method; results will come later.
-
-## Licence and contact
-
-[Add licence, project page and contact address before publishing.]
