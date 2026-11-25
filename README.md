@@ -42,7 +42,7 @@ The page can be opened while a scan is still running. It shows progress and fill
 You need Node.js 18 or newer.
 
 ```bash
-cd readiness-portal
+cd title-ii-readiness-index
 npm install
 npx playwright install chromium
 npm run dev
