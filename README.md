@@ -250,3 +250,13 @@ Run it only on a machine where Playwright's Chromium is installed. Jobs live in 
 - A fix-first guide for the most common failures.
 
 These are planned, not part of this release. The benchmark folder is checked in so others can inspect the method; results will come later.
+
+## Licence
+
+Copyright (c) 2026 Denelsen Dandi.
+
+- Code: MIT License (see LICENSE).
+- Report, published data and documentation: Creative Commons Attribution 4.0
+  International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+- src/components/ contains BoardUI interface components, which keep their own
+  licence terms.
