@@ -2,6 +2,9 @@
 each with known accessibility defects injected. The manifest records which defects
 each case contains, so score.js can check what an AI tool actually fixed.
 
+Defects are picked so that every defect type is planted about equally often
+(the counts differ by at most one), so per-defect results are comparable.
+
 Usage: python3 make_cases.py --cases 20 --per-case 3 --seed 2026
 """
 import argparse
@@ -70,11 +73,15 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     rng = random.Random(a.seed)
     manifest = {"base": "clean.html", "cases": {}}
+    usage = {d[0]: 0 for d in DEFECTS}  # how often each defect has been planted so far
     with open(os.path.join(a.out, "clean.html"), "w") as f:
         f.write(BASE)
     for i in range(1, a.cases + 1):
         html = BASE
-        picked = rng.sample(DEFECTS, a.per_case)
+        # Least-used defects first; ties broken at random. Picks are distinct within a case.
+        picked = sorted(DEFECTS, key=lambda d: (usage[d[0]], rng.random()))[: a.per_case]
+        for d in picked:
+            usage[d[0]] += 1
         for _, _, old, new in picked:
             assert old in html, old
             html = html.replace(old, new, 1)
@@ -84,7 +91,11 @@ def main():
         manifest["cases"][name] = [{"defect": d, "rule": r} for d, r, _, _ in picked]
     with open(os.path.join(a.out, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=2)
+    manifest["defect_counts"] = usage
+    with open(os.path.join(a.out, "manifest.json"), "w") as f:
+        json.dump(manifest, f, indent=2)
     print(f"Wrote {a.cases} cases to {a.out}")
+    print("Defects planted:", ", ".join(f"{k}={v}" for k, v in sorted(usage.items())))
 
 
 if __name__ == "__main__":
